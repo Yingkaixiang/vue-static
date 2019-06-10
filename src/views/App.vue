@@ -1,21 +1,22 @@
 <template>
   <div :class="$style.example">
     这是{{ page }}页面11
-    <img src="../assets/ic_hot.jpg">
+    <img src="../assets/ic_hot.jpg" />
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      page: 'index',
-    }
+      page: "index",
+    };
   },
-  mounted () {
-    const { a, ...restProps } = { a: 1, b: 2 }
-  }
-}
+  mounted() {
+    const { a, ...restProps } = { a: 1, b: 2 };
+    console.dir(a, restProps);
+  },
+};
 </script>
 
 <style module>

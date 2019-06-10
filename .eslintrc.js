@@ -2,21 +2,22 @@ module.exports = {
   env: {
     commonjs: true,
     es6: true,
-    node: true
+    node: true,
+    jest: true,
   },
   extends: [
     "eslint:recommended",
     "eslint-config-prettier",
-    "plugin:vue/recommended"
+    "plugin:vue/recommended",
   ],
   globals: {
     Atomics: "readonly",
-    SharedArrayBuffer: "readonly"
+    SharedArrayBuffer: "readonly",
   },
   parserOptions: {
     // 支持的 JS 的语法版本
     ecmaVersion: 2018,
-    parser: "babel-eslint"
+    parser: "babel-eslint",
   },
   plugins: ["prettier"],
   rules: {
@@ -28,12 +29,12 @@ module.exports = {
         tabWidth: 2,
         semi: true,
         trailingComma: "all",
-        endOfLine: "auto"
-      }
+        endOfLine: "auto",
+      },
     ],
     "vue/attributes-order": "off",
     "vue/html-self-closing": "off",
     "vue/singleline-html-element-content-newline": "off",
-    "vue/max-attributes-per-line": "off"
-  }
+    "vue/max-attributes-per-line": "off",
+  },
 };

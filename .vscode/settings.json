@@ -7,5 +7,6 @@
       "language": "vue",
       "autoFix": true
     },
-  ]
+  ],
+  "editor.formatOnSave": true
 }

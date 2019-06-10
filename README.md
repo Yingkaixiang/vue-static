@@ -40,3 +40,7 @@ yarn add eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-vue 
   ]
 }
 ```
+
+## 移动端调试
+
+whistle

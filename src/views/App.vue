@@ -20,8 +20,18 @@ export default {
 </script>
 
 <style module>
+@svg square {
+  @rect {
+    fill: var(--color, black);
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .example {
+  font-size: 32px;
   color: blue;
   user-select: none;
+  background: white svg(square param(--color #00b1ff));
 }
 </style>

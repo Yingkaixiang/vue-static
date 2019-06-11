@@ -44,3 +44,30 @@ yarn add eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-vue 
 ## 移动端调试
 
 whistle
+
+## 单元测试
+
+```bash
+yarn add jest @vue/test-utils vue-jest babel-jest 'babel-core@^7.0.0-0' @babel/core regenerator-runtime --dev
+```
+
+```json
+// package.json
+{
+  // ...
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
+  }
+}
+```

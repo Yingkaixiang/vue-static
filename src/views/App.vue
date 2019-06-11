@@ -1,37 +1,33 @@
 <template>
-  <div :class="$style.example">
-    这是{{ page }}页面11
-    <img src="../assets/ic_hot.jpg" />
+  <div :class="$style.main">
+    <Banner />
+    <Marketing />
+    <Detail />
+    <Order />
   </div>
 </template>
 
 <script>
+import Banner from "@/components/Banner/Banner";
+import Marketing from "@/components/Marketing/Marketing";
+import Detail from "@/components/Detail/Detail";
+import Order from "@/components/Order/Order";
+
 export default {
-  data() {
-    return {
-      page: "index",
-    };
+  components: {
+    Banner,
+    Marketing,
+    Detail,
+    Order,
   },
-  mounted() {
-    const { a, ...restProps } = { a: 1, b: 2 };
-    console.dir(a, restProps);
+  data() {
+    return {};
   },
 };
 </script>
 
-<style module>
-@svg square {
-  @rect {
-    fill: var(--color, black);
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.example {
-  font-size: 32px;
-  color: blue;
-  user-select: none;
-  background: white svg(square param(--color #00b1ff));
+<style lang="less" module>
+.main {
+  width: 375px;
 }
 </style>

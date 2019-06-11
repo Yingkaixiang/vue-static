@@ -2,10 +2,11 @@ module.exports = {
   plugins: {
     autoprefixer: {},
     "postcss-px-to-viewport": {
-      viewportWidth: 750,
+      viewportWidth: 375,
     },
     "postcss-write-svg": {
       utf8: false,
     },
+    "postcss-aspect-ratio-mini": {},
   },
 };

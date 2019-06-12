@@ -1,7 +1,7 @@
-const Koa = require("koa");
-const { createBundleRenderer } = require("vue-server-renderer");
+import Koa from 'koa';
+import { createBundleRenderer } from 'vue-server-renderer';
 
-const serverBundle = require("../dist/vue-ssr-server-bundle.json");
+import serverBundle from '../dist/vue-ssr-server-bundle.json';
 
 const app = new Koa();
 

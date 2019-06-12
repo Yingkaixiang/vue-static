@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --hot --config webpack.client.js",
     "commit": "yarn git-cz",
     "test": "jest",
-    "server": "nodemon server/index.js"
+    "server": "nodemon --exec ts-node server/index.ts"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

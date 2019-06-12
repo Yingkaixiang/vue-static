@@ -10,7 +10,9 @@ Vue.config.errorHandler = function() {};
 
 Vue.use(Vuex);
 
-new Vue({
-  el: "#app",
-  render: h => h(App),
-});
+export default function createApp() {
+  const app = new Vue({
+    render: h => h(App),
+  });
+  return { app };
+}

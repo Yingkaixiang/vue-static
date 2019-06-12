@@ -122,12 +122,12 @@ export default {
 
   mounted() {
     this.initialize();
-    window.addEventListener("resize", this.onResize, true);
+    // window.addEventListener("resize", this.onResize, true);
   },
 
   destroyed() {
     this.clear();
-    window.removeEventListener("resize", this.onResize, true);
+    // window.removeEventListener("resize", this.onResize, true);
   },
 
   methods: {

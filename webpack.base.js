@@ -2,7 +2,6 @@ const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
-  mode: "development",
   module: {
     rules: [
       {
@@ -29,26 +28,6 @@ module.exports = {
             },
           },
         ],
-      },
-      {
-        test: /\.(css|less)$/,
-        exclude: /src\/global.less/,
-        use: [
-          "vue-style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              localIdentName: "[local]_[hash:base64:8]",
-            },
-          },
-          "less-loader",
-          "postcss-loader",
-        ],
-      },
-      {
-        test: /src\/global.less/,
-        use: ["style-loader", "css-loader", "less-loader", "postcss-loader"],
       },
     ],
   },

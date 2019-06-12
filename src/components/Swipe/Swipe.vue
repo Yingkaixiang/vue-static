@@ -316,20 +316,3 @@ export default {
   },
 };
 </script>
-
-<style lang="less">
-.ct-swipe {
-  position: relative;
-  overflow: hidden;
-  user-select: none;
-
-  & img {
-    width: 100%;
-    display: block;
-  }
-
-  &-track {
-    height: 100%;
-  }
-}
-</style>

@@ -27,10 +27,3 @@ export default {
   },
 };
 </script>
-
-<style lang="less">
-.ct-swipe-item {
-  float: left;
-  height: 100%;
-}
-</style>

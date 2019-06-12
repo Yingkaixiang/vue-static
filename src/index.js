@@ -3,7 +3,7 @@ import Vue from "vue";
 import App from "./views/App.vue";
 
 import "normalize.css";
-import "./global.css";
+import "./global.less";
 
 Vue.config.errorHandler = function() {};
 

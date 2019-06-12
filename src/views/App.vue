@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import Banner from "@/components/Banner/Banner";
-import Marketing from "@/components/Marketing/Marketing";
-import Detail from "@/components/Detail/Detail";
-import Order from "@/components/Order/Order";
+import Banner from "@components/Banner/Banner";
+import Marketing from "@components/Marketing/Marketing";
+import Detail from "@components/Detail/Detail";
+import Order from "@components/Order/Order";
 
 export default {
   components: {

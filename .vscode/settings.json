@@ -8,5 +8,6 @@
       "autoFix": true
     },
   ],
-  "css.lint.unknownProperties": "ignore"
+  "css.lint.unknownProperties": "ignore",
+  "less.lint.unknownProperties": "ignore"
 }

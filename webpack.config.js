@@ -32,6 +32,7 @@ module.exports = {
       },
       {
         test: /\.(css|less)$/,
+        exclude: /src\/global.less/,
         use: [
           "vue-style-loader",
           {
@@ -44,6 +45,10 @@ module.exports = {
           "less-loader",
           "postcss-loader",
         ],
+      },
+      {
+        test: /src\/global.less/,
+        use: ["style-loader", "css-loader", "less-loader", "postcss-loader"],
       },
     ],
   },

@@ -1,6 +1,5 @@
 <template>
   <div aspectratio w-1-1 :class="$style.banner">
-    <Notification />
     <div :class="$style.swipe">
       <Swipe>
         <SwipeItem>
@@ -35,13 +34,11 @@
 <script>
 import Swipe from "../Swipe/Swipe";
 import SwipeItem from "../Swipe/SwipeItem";
-import Notification from "../Notification/Notification";
 
 export default {
   components: {
     Swipe,
     SwipeItem,
-    Notification,
   },
 };
 </script>

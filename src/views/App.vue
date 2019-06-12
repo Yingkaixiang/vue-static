@@ -1,5 +1,6 @@
 <template>
   <div :class="$style.main">
+    <Notification />
     <Banner />
     <Marketing />
     <Detail />
@@ -12,6 +13,7 @@ import Banner from "@components/Banner/Banner";
 import Marketing from "@components/Marketing/Marketing";
 import Detail from "@components/Detail/Detail";
 import Order from "@components/Order/Order";
+import Notification from "@components/Notification/Notification";
 
 export default {
   components: {
@@ -19,6 +21,7 @@ export default {
     Marketing,
     Detail,
     Order,
+    Notification,
   },
   data() {
     return {};

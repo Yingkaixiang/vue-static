@@ -1,18 +1,19 @@
 import Vue from "vue";
-import Vuex from "vuex";
 
 import App from "./views/App.vue";
+import { createStore } from "./store/";
 
 import "normalize.css";
 import "./global.less";
 
 Vue.config.errorHandler = function() {};
 
-Vue.use(Vuex);
-
 export default function createApp() {
+  const store = createStore();
+
   const app = new Vue({
+    store,
     render: h => h(App),
   });
-  return { app };
+  return { app, store };
 }

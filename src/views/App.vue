@@ -1,10 +1,12 @@
 <template>
-  <div :class="$style.main">
-    <Notification />
-    <Banner />
-    <Marketing />
-    <Detail />
-    <Order />
+  <div id="#app">
+    <div :class="$style.main">
+      <Notification />
+      <Banner />
+      <Marketing />
+      <Detail />
+      <Order />
+    </div>
   </div>
 </template>
 

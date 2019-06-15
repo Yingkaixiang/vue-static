@@ -9,7 +9,8 @@
     "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.server.config.js",
     "commit": "yarn git-cz",
     "test": "jest",
-    "server": "node server/index.js"
+    "server": "cross-env NODE_ENV=production node server/index.js",
+    "dev": "node server/index.js"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -20,6 +21,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
+    "chokidar": "^3.0.1",
     "clean-webpack-plugin": "^3.0.0",
     "commitizen": "^3.1.1",
     "cross-env": "^5.2.0",
@@ -53,7 +55,9 @@
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.33.0",
     "webpack-cli": "^3.3.2",
+    "webpack-dev-middleware": "^3.7.0",
     "webpack-dev-server": "^3.6.0",
+    "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2"
   },

@@ -1,35 +1,29 @@
 const Koa = require("koa");
 const serve = require("koa-static");
 const { createBundleRenderer } = require("vue-server-renderer");
-const webpack = require("webpack");
-const MFS = require("memory-fs");
+
 const fs = require("fs");
 const path = require("path");
 
 const serverBundle = require("../dist/vue-ssr-server-bundle.json");
 const clientManifest = require("../dist/vue-ssr-client-manifest.json");
-const serverConfig = require("../build/webpack.server.config.js");
+const setupDevServer = require("../build/setup-dev-server");
 
 const app = new Koa();
 app.use(serve("."));
+
+const isProd = process.env.NODE_ENV === "production";
 
 // 获取 html 模板
 const templatePath = resolve("../src/index.template.html");
 const template = fs.readFileSync(templatePath, "utf-8");
 
-const renderer = createBundleRenderer(serverBundle, {
+let renderer;
+
+renderer = createBundleRenderer(serverBundle, {
   runInNewContext: false,
   template,
   clientManifest,
-});
-
-const serverCompiler = webpack(serverConfig);
-const mfs = new MFS();
-serverCompiler.outputFileSystem = mfs;
-serverCompiler.watch({}, (err, stats) => {
-  if (err) throw err;
-  stats = stats.toJson();
-  if (stats.errors.length) return;
 });
 
 async function render() {
@@ -40,10 +34,26 @@ async function render() {
   return html;
 }
 
-app.use(async ctx => {
-  const html = await render();
-  ctx.body = html;
-});
+app.use(
+  isProd
+    ? async ctx => {
+        const html = await render();
+        ctx.body = html;
+      }
+    : async ctx => {
+        await setupDevServer(app, templatePath, (bundle, options) => {
+          const op = Object.assign(
+            {
+              runInNewContext: false,
+            },
+            options,
+          );
+          renderer = createBundleRenderer(bundle, op);
+        });
+        const html = await render();
+        ctx.body = html;
+      },
+);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

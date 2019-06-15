@@ -23,7 +23,7 @@
           ]"
         >
           <div :class="$style['swipe-media-btn-triangle']"></div>
-          视频
+          视频3333
         </div>
         <div :class="$style['swipe-media-btn']">文字</div>
       </div>

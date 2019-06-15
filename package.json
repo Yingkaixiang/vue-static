@@ -5,9 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn run build:client && yarn run build:server",
-    "build:client": "cross-env NODE_ENV=production webpack --config webpack.client.config.js",
-    "build:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js",
-    "dev:spa": "webpack-dev-server --hot --config webpack.client.config.js",
+    "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.client.config.js",
+    "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.server.config.js",
     "commit": "yarn git-cz",
     "test": "jest",
     "server": "node server/index.js"
@@ -31,6 +30,7 @@
     "eslint-loader": "^2.1.2",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.2.2",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "jest": "^24.8.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",

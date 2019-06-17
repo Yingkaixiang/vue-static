@@ -7,3 +7,7 @@ if (window.__INITIAL_STATE__) {
 }
 
 app.$mount("#app");
+
+if (module.hot) {
+  module.hot.accept();
+}

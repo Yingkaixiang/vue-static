@@ -10,7 +10,7 @@
     "commit": "yarn git-cz",
     "test": "jest",
     "server": "cross-env NODE_ENV=production node server/index.js",
-    "dev": "nodemon server/index.js"
+    "dev": "node server/index.js"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

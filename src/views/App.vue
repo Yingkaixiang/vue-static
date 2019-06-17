@@ -1,5 +1,5 @@
 <template>
-  <div id="#app">
+  <div id="app">
     <div :class="$style.main">
       <Notification />
       <Banner />

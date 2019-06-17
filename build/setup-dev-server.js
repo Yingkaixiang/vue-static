@@ -14,6 +14,10 @@ function setupDevServer(app, templatePath, cb) {
   let clientManifest;
   let ready;
 
+  let readyPromise = new Promise(resolve => {
+    ready = resolve;
+  });
+
   // 监听模板修改
   template = fs.readFileSync(templatePath, "utf-8");
   chokidar.watch(templatePath).on("change", () => {
@@ -22,11 +26,12 @@ function setupDevServer(app, templatePath, cb) {
 
   // 开启客户端热更新相关配置
   clientConfig.entry.app = [
-    "webpack-hot-middleware/client",
+    "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000",
     path.resolve(__dirname, "../src/entry-client.js"),
   ];
   clientConfig.output.filename = "[name].js";
   clientConfig.plugins.push(
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   );
@@ -80,9 +85,7 @@ function setupDevServer(app, templatePath, cb) {
     }
   }
 
-  return new Promise(resolve => {
-    ready = resolve;
-  });
+  return readyPromise;
 }
 
 function readFile(fs, file) {

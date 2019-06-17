@@ -19,10 +19,13 @@ const app = new Koa();
 const router = new Router();
 
 router.get("/", async ctx => {
+  const start = Date.now();
   await setupDevServer(app, templatePath, (bundle, options) => {
     renderer = createRenderer(bundle, options);
   });
   await render(ctx);
+  const duration = Date.now() - start;
+  console.log(`whole request: ${duration} ms`);
 });
 
 app.use(router.routes()).use(router.allowedMethods());
@@ -33,13 +36,10 @@ app.listen(port, () => {
 });
 
 async function render(ctx) {
-  const start = Date.now();
   const html = await renderer.renderToString({
     title: "vue-static",
   });
-  const duration = Date.now() - start;
   ctx.body = html;
-  console.log(`whole request: ${duration} ms`);
 }
 
 function resolve(filePath) {

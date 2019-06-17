@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.notification">
     <div :class="$style['notification-avatar']"></div>
-    <div>上海陈**购买了该商品s，7分钟前</div>
+    <div>上海陈**购买了该商品，7分钟前</div>
   </div>
 </template>
 

@@ -8,7 +8,7 @@ const baseConfig = require("./webpack.base.config");
 
 module.exports = merge(baseConfig, {
   target: "node",
-  entry: path.resolve(__dirname, "../src/entry-server.js"),
+  entry: path.resolve(__dirname, "../src/entry/entry-server.js"),
   output: {
     filename: "server-bundle.js",
     libraryTarget: "commonjs2",

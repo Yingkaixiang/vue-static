@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const Koa = require("koa");
+const LRU = require("lru-cache");
 const Router = require("koa-router");
 const { createBundleRenderer } = require("vue-server-renderer");
 
@@ -47,7 +48,12 @@ function resolve(filePath) {
 }
 
 function createRenderer(bundle, options) {
+  const cache = new LRU({
+    max: 1000,
+    maxAge: 1000 * 60 * 15,
+  });
   const opt = Object.assign(options, {
+    cache,
     runInNewContext: false,
   });
   return createBundleRenderer(bundle, opt);

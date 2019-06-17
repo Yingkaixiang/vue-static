@@ -5,8 +5,8 @@ const webpack = require("webpack");
 const MFS = require("memory-fs");
 const { devMiddleware, hotMiddleware } = require("koa-webpack-middleware");
 
-const clientConfig = require("../build/webpack.client.config");
-const serverConfig = require("../build/webpack.server.config");
+const clientConfig = require("./webpack.client.config");
+const serverConfig = require("./webpack.server.config");
 
 function setupDevServer(app, templatePath, cb) {
   let template;
@@ -27,7 +27,7 @@ function setupDevServer(app, templatePath, cb) {
   // 开启客户端热更新相关配置
   clientConfig.entry.app = [
     "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000",
-    path.resolve(__dirname, "../src/entry-client.js"),
+    path.resolve(__dirname, "../src/entry/entry-client.js"),
   ];
   clientConfig.output.filename = "[name].js";
   clientConfig.plugins.push(

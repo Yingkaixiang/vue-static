@@ -10,7 +10,7 @@ const baseConfig = require("./webpack.base.config");
 // 1. 多入口打包
 module.exports = merge(baseConfig, {
   entry: {
-    app: path.resolve(__dirname, "../src/entry-client.js"),
+    app: path.resolve(__dirname, "../src/entry/entry-client.js"),
   },
   plugins: [
     // new CleanWebpackPlugin(),

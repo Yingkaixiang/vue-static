@@ -67,7 +67,18 @@ module.exports = {
               "less-loader",
               "postcss-loader",
             ]
-          : ["vue-style-loader", "css-loader", "less-loader", "postcss-loader"],
+          : [
+              "vue-style-loader",
+              {
+                loader: "css-loader",
+                options: {
+                  modules: true,
+                  localIdentName: "[local]_[hash:base64:8]",
+                },
+              },
+              "less-loader",
+              "postcss-loader",
+            ],
       },
       {
         test: /src\/global.less/,

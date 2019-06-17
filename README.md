@@ -1,5 +1,9 @@
 # Vue 静态化
 
+## 实现原理
+
+
+
 ## git commit 规范
 
 ```bash

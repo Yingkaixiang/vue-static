@@ -6,8 +6,12 @@ const path = require("path");
 
 const baseConfig = require("./webpack.base.config");
 
+// TODO
+// 1. 多入口打包
 module.exports = merge(baseConfig, {
-  entry: path.resolve(__dirname, "../src/entry-client.js"),
+  entry: {
+    app: path.resolve(__dirname, "../src/entry-client.js"),
+  },
   plugins: [
     // new CleanWebpackPlugin(),
     new VueSSRClientPlugin(),

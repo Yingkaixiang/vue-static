@@ -1,30 +1,42 @@
+const webpack = require("webpack");
 const merge = require("webpack-merge");
 const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
-// const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const webpack = require("webpack");
-const path = require("path");
+
+const { resolve } = require("./util");
 
 const baseConfig = require("./webpack.base.config");
+
+const isProd = process.env.NODE_ENV === "production";
 
 // TODO
 // 1. 多入口打包
 module.exports = merge(baseConfig, {
+  mode: isProd ? "production" : "development",
+  devtool: isProd ? "source-map" : "cheap-eval-source-map",
   entry: {
-    app: path.resolve(__dirname, "../src/entry/entry-client.js"),
+    app: resolve("../src/entry/entry-client.js"),
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      cacheGroups: {
+        libs: {
+          name: "chunk-libs",
+          test: /[\\/]node_modules[\\/]/,
+          priority: 10,
+          chunks: "initial",
+        },
+      },
+    },
+    runtimeChunk: true,
   },
   plugins: [
-    // new CleanWebpackPlugin(),
     new VueSSRClientPlugin(),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(
         process.env.NODE_ENV || "development",
       ),
+      "process.env.VUE_ENV": "client",
     }),
   ],
-  // devServer: {
-  //   // 如果不设置为 true
-  //   // whistle 会报错 invalid host header
-  //   disableHostCheck: true,
-  //   host: "0.0.0.0",
-  // },
 });

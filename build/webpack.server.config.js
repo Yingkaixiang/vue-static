@@ -1,14 +1,16 @@
-const path = require("path");
+const webpack = require("webpack");
 const merge = require("webpack-merge");
 const nodeExternals = require("webpack-node-externals");
 const VueSSRServerPlugin = require("vue-server-renderer/server-plugin");
-const webpack = require("webpack");
+
+const { resolve } = require("./util");
 
 const baseConfig = require("./webpack.base.config");
 
 module.exports = merge(baseConfig, {
+  mode: "production",
   target: "node",
-  entry: path.resolve(__dirname, "../src/entry/entry-server.js"),
+  entry: resolve("../src/entry/entry-server.js"),
   output: {
     filename: "server-bundle.js",
     libraryTarget: "commonjs2",
@@ -21,7 +23,7 @@ module.exports = merge(baseConfig, {
       "process.env.NODE_ENV": JSON.stringify(
         process.env.NODE_ENV || "development",
       ),
-      "process.env.VUE_ENV": '"server"',
+      "process.env.VUE_ENV": "server",
     }),
     new VueSSRServerPlugin(),
   ],

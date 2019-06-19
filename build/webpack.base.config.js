@@ -9,11 +9,6 @@ const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
-  mode: "production",
-  // 生产环境生成完整的 sourcemap 文件
-  // 然后将 sourcemap 文件上传至内网环境
-  // 供内部监控系统进行代码还原
-  devtool: isProd ? "source-map" : "cheap-eval-source-map",
   output: {
     path: path.resolve(__dirname, "../dist"),
     publicPath: "/dist/",
@@ -97,7 +92,7 @@ module.exports = {
     minimizer: [new OptimizeCSSAssetsPlugin({}), new TerserJSPlugin({})],
   },
   performance: {
-    hints: false,
+    hints: isProd ? "error" : "warning",
   },
   plugins: isProd
     ? [

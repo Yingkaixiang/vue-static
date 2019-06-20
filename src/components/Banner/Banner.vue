@@ -3,7 +3,7 @@
     <div :class="$style.swipe">
       <Swipe>
         <SwipeItem>
-          <div :class="$style['swipe-item']">1</div>
+          <div :class="$style['swipe-item']">1222</div>
         </SwipeItem>
         <SwipeItem>
           <div :class="$style['swipe-item']">2</div>

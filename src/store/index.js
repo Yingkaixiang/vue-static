@@ -5,12 +5,10 @@ Vue.use(Vuex);
 
 export function createStore() {
   return new Vuex.Store({
-    state: {
-      name: "",
-    },
+    state: {},
     mutations: {
-      setName(state, data) {
-        state.name = data;
+      setState(state, data) {
+        state = data;
       },
     },
   });

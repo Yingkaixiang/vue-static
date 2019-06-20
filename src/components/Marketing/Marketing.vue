@@ -1,9 +1,15 @@
 <template>
-  <div :class="$style.marketing"></div>
+  <div :class="$style.marketing">{{ name }}</div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    name() {
+      return this.$store.state.name;
+    },
+  },
+};
 </script>
 
 <style lang="less" module>

@@ -6,7 +6,12 @@ Vue.use(Vuex);
 export function createStore() {
   return new Vuex.Store({
     state: {
-      name: "应开翔",
+      name: "",
+    },
+    mutations: {
+      setName(state, data) {
+        state.name = data;
+      },
     },
   });
 }

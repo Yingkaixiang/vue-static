@@ -6,7 +6,9 @@ import { createStore } from "./store/";
 import "normalize.css";
 import "./global.less";
 
-Vue.config.errorHandler = function() {};
+Vue.config.errorHandler = function() {
+  console.dir(arguments);
+};
 
 export default function createApp() {
   const store = createStore();

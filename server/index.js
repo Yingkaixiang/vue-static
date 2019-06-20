@@ -3,6 +3,7 @@ const path = require("path");
 const Koa = require("koa");
 const LRU = require("lru-cache");
 const Router = require("koa-router");
+const axios = require("axios");
 const { createBundleRenderer } = require("vue-server-renderer");
 
 const setupDevServer = require("../build/setup-dev-server");
@@ -37,8 +38,12 @@ app.listen(port, () => {
 });
 
 async function render(ctx) {
+  const { data } = await axios({
+    url: "https://pokeapi.co/api/v2/pokemon/ditto/",
+  });
   const html = await renderer.renderToString({
     title: "vue-static",
+    state: data,
   });
   ctx.body = html;
 }

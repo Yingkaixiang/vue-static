@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input.vue Input Attributes 1`] = `
+<input
+  class="ct-input"
+  placeholder="请输入姓名"
+/>
+`;
+
+exports[`Input.vue TextArea Attributes 1`] = `
+<textarea
+  class="ct-input"
+  placeholder="请输入姓名"
+  rows="3"
+/>
+`;

@@ -3,7 +3,7 @@
     <div :class="$style.swipe">
       <Swipe>
         <SwipeItem>
-          <div :class="$style['swipe-item']">1222</div>
+          <div :class="$style['swipe-item']">1</div>
         </SwipeItem>
         <SwipeItem>
           <div :class="$style['swipe-item']">2</div>
@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import Swipe from "../Swipe/Swipe";
-import SwipeItem from "../Swipe/SwipeItem";
+import Swipe from "@components/Swipe/Swipe";
+import SwipeItem from "@components/Swipe/SwipeItem";
 
 export default {
   components: {

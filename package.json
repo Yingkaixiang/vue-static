@@ -10,7 +10,7 @@
     "commit": "yarn git-cz",
     "test": "jest",
     "server": "node server/index.js",
-    "dev": "yarn build && node server/index.js"
+    "dev": "node server/index.js"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

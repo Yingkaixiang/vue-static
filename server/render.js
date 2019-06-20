@@ -23,10 +23,13 @@ function createRenderer(bundle, options) {
   return createBundleRenderer(bundle, opt);
 }
 
+// 生产环境直接输出 html
 async function render(data) {
   return await renderer.renderToString(data);
 }
 
+// 实时监听文件变化，更新 bundle 文件
+// 创建新 renderer 并输出新 html
 async function renderDev(app, data) {
   await setupDevServer(app, templatePath, (bundle, options) => {
     renderer = createRenderer(bundle, options);

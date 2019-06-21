@@ -1,6 +1,5 @@
-const axios = require("axios");
-
 const { render, renderDev } = require("./render");
+const mock = require("./mock");
 
 module.exports = (router, app) => {
   router.get("/site/create/:id", async ctx => {
@@ -14,10 +13,7 @@ module.exports = (router, app) => {
   });
 
   router.get("/", async ctx => {
-    const { data } = await axios({
-      url: "https://pokeapi.co/api/v2/pokemon/ditto/",
-    });
-    const html = await renderDev(app, { title: "vue static", state: data });
+    const html = await renderDev(app, { title: "vue static", state: mock });
     ctx.body = html;
   });
 

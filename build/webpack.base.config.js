@@ -71,8 +71,8 @@ module.exports = {
                   localIdentName: "[local]_[hash:base64:8]",
                 },
               },
-              "less-loader",
               "postcss-loader",
+              "less-loader",
             ],
       },
       {
@@ -84,7 +84,7 @@ module.exports = {
               "less-loader",
               "postcss-loader",
             ]
-          : ["vue-style-loader", "css-loader", "less-loader", "postcss-loader"],
+          : ["vue-style-loader", "css-loader", "postcss-loader", "less-loader"],
       },
     ],
   },

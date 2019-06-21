@@ -2,17 +2,10 @@
   <div aspectratio w-1-1 :class="$style.banner">
     <div :class="$style.swipe">
       <Swipe>
-        <SwipeItem>
-          <div :class="$style['swipe-item']">1</div>
-        </SwipeItem>
-        <SwipeItem>
-          <div :class="$style['swipe-item']">2</div>
-        </SwipeItem>
-        <SwipeItem>
-          <div :class="$style['swipe-item']">3</div>
-        </SwipeItem>
-        <SwipeItem>
-          <div :class="$style['swipe-item']">4</div>
+        <SwipeItem v-for="(item, index) in banner" :key="index">
+          <div :class="$style['swipe-item']">
+            <img :src="item" />
+          </div>
         </SwipeItem>
       </Swipe>
       <div :class="$style['swipe-media']">
@@ -39,6 +32,11 @@ export default {
   components: {
     Swipe,
     SwipeItem,
+  },
+  computed: {
+    banner() {
+      return this.$store.state.banner;
+    },
   },
 };
 </script>

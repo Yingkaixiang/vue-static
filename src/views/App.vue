@@ -6,6 +6,7 @@
       <Marketing />
       <Detail />
       <Order />
+      <BuyNowButton />
     </div>
   </div>
 </template>
@@ -16,6 +17,7 @@ import Marketing from "./Marketing/Marketing";
 import Detail from "./Detail/Detail";
 import Order from "./Order/Order";
 import Notification from "./Notification/Notification";
+import BuyNowButton from "./BuyNowButton/BuyNowButton";
 
 export default {
   components: {
@@ -24,6 +26,7 @@ export default {
     Detail,
     Order,
     Notification,
+    BuyNowButton,
   },
   data() {
     return {};

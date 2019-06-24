@@ -7,9 +7,7 @@ module.exports = (router, app) => {
     // 通过 id 获取对应站点数据
     const html = await render({ title: `自定义站点：${id}` });
     // 上传静态 html
-    console.log("上传 html 成功");
-    console.log(html);
-    ctx.body = "同步直出成功";
+    ctx.body = html;
   });
 
   router.get("/", async ctx => {

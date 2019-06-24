@@ -34,6 +34,10 @@
     "eslint-plugin-vue": "^5.2.2",
     "file-loader": "^4.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "imagemin": "^6.1.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "img-loader": "^3.0.1",
     "jest": "^24.8.0",
     "koa-webpack-middleware": "^1.0.7",
     "less": "^3.9.0",
@@ -60,7 +64,8 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
     "webpack-merge": "^4.2.1",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "webpack-spritesmith": "^1.0.1"
   },
   "dependencies": {
     "@sentry/browser": "^5.4.0",

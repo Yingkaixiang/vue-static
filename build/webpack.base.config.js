@@ -6,6 +6,8 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const webpack = require("webpack");
 const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
 
+const { resolve } = require("./util");
+
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
@@ -17,8 +19,8 @@ module.exports = {
   resolve: {
     extensions: [".js", ".vue", ".json"],
     alias: {
-      "@": path.resolve(__dirname, "../src"),
-      "@components": path.resolve(__dirname, "../src/components"),
+      "@": resolve("../src"),
+      "@components": resolve("../src/components"),
     },
   },
   module: {
@@ -53,7 +55,7 @@ module.exports = {
             options: {
               plugins: [
                 require("imagemin-pngquant")({
-                  quality: "80", // the quality of zip
+                  quality: "80",
                 }),
                 require("imagemin-mozjpeg")({
                   progressive: true,
@@ -77,8 +79,8 @@ module.exports = {
                   localIdentName: "[local]_[hash:base64:8]",
                 },
               },
-              "less-loader",
               "postcss-loader",
+              "less-loader",
             ]
           : [
               "vue-style-loader",

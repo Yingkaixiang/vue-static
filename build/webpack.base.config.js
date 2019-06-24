@@ -40,11 +40,29 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/i,
-        loader: "url-loader",
-        options: {
-          limit: 8192,
-          name: "[name].[ext]?[hash]",
-        },
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+              name: "[name].[ext]?[hash]",
+            },
+          },
+          {
+            loader: "img-loader",
+            options: {
+              plugins: [
+                require("imagemin-pngquant")({
+                  quality: "80", // the quality of zip
+                }),
+                require("imagemin-mozjpeg")({
+                  progressive: true,
+                  arithmetic: false,
+                }),
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.(css|less)$/,

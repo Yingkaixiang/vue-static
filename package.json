@@ -32,6 +32,7 @@
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.2.2",
+    "file-loader": "^4.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "jest": "^24.8.0",
     "koa-webpack-middleware": "^1.0.7",
@@ -59,8 +60,7 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
     "webpack-merge": "^4.2.1",
-    "webpack-node-externals": "^1.7.2",
-    "webpack-spritesmith": "^1.0.1"
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "@sentry/browser": "^5.4.0",

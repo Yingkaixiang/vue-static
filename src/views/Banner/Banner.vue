@@ -2,6 +2,11 @@
   <div aspectratio w-1-1 :class="$style.banner">
     <div :class="$style.swipe">
       <Swipe>
+        <SwipeItem>
+          <div :class="$style['swipe-item']">
+            <img src="../../assets/images/beach.jpg" />
+          </div>
+        </SwipeItem>
         <SwipeItem v-for="(item, index) in banner" :key="index">
           <div :class="$style['swipe-item']">
             <img :src="item" />

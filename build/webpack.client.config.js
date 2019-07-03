@@ -1,14 +1,12 @@
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
-const webpackBundleAnalyzer = require("webpack-bundle-analyzer");
 
 const { resolve } = require("./util");
 
 const baseConfig = require("./webpack.base.config");
 
 const isProd = process.env.NODE_ENV === "production";
-const BundleAnalyzerPlugin = webpackBundleAnalyzer.BundleAnalyzerPlugin;
 
 console.log("---------- 客户端配置 ----------");
 console.log(`当前环境：${process.env.NODE_ENV}`);
@@ -22,9 +20,6 @@ const plugins = [
     "process.env.VUE_ENV": "client",
   }),
 ];
-if (isProd) {
-  plugins.push(new BundleAnalyzerPlugin());
-}
 
 // TODO
 // 1. 多入口打包
@@ -37,14 +32,6 @@ module.exports = merge(baseConfig, {
   optimization: {
     splitChunks: {
       chunks: "all",
-      cacheGroups: {
-        libs: {
-          name: "chunk-libs",
-          test: /[\\/]node_modules[\\/]/,
-          priority: 10,
-          chunks: "initial",
-        },
-      },
     },
     runtimeChunk: true,
   },

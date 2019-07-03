@@ -6,6 +6,11 @@ import { createStore } from "./store/";
 import "normalize.css";
 import "./global.less";
 
+console.log(
+  `%c当前环境：${process.env.NODE_ENV} + ${process.env.VUE_ENV}`,
+  "color: #42c02e",
+);
+
 export default function createApp() {
   const store = createStore();
 

@@ -17,12 +17,10 @@ const plugins = [
     "process.env.NODE_ENV": JSON.stringify(
       process.env.NODE_ENV || "development",
     ),
-    "process.env.VUE_ENV": "client",
+    "process.env.VUE_ENV": "'client'",
   }),
 ];
 
-// TODO
-// 1. 多入口打包
 module.exports = merge(baseConfig, {
   mode: isProd ? "production" : "development",
   devtool: isProd ? "source-map" : "cheap-eval-source-map",

@@ -10,6 +10,9 @@ const baseConfig = require("./webpack.base.config");
 const isProd = process.env.NODE_ENV === "production";
 const BundleAnalyzerPlugin = webpackBundleAnalyzer.BundleAnalyzerPlugin;
 
+console.log("---------- 客户端配置 ----------");
+console.log(`当前环境：${process.env.NODE_ENV}`);
+
 const plugins = [
   new VueSSRClientPlugin(),
   new webpack.DefinePlugin({
@@ -19,7 +22,7 @@ const plugins = [
     "process.env.VUE_ENV": "client",
   }),
 ];
-if (!isProd) {
+if (isProd) {
   plugins.push(new BundleAnalyzerPlugin());
 }
 

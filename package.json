@@ -4,13 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf dist && yarn run build:client && yarn run build:server",
-    "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.client.config.js",
-    "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.server.config.js",
+    "build:dev": "rimraf dist && cross-env NODE_ENV=development yarn run build:client && cross-env NODE_ENV=development yarn run build:server",
+    "build:client": "webpack --config build/webpack.client.config.js",
+    "build:server": "webpack --config build/webpack.server.config.js",
     "commit": "yarn git-cz",
     "test": "jest",
     "server": "cross-env NODE_ENV=production node server/index.js",
-    "dev": "node server/index.js"
+    "dev": "cross-env NODE_ENV=development node server/index.js"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

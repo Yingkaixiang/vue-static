@@ -7,6 +7,9 @@ const { resolve } = require("./util");
 
 const baseConfig = require("./webpack.base.config");
 
+console.log("---------- 服务端配置 ----------");
+console.log(`当前环境：${process.env.NODE_ENV}`);
+
 module.exports = merge(baseConfig, {
   mode: "production",
   target: "node",

@@ -10,6 +10,9 @@ const { resolve } = require("./util");
 
 const isProd = process.env.NODE_ENV === "production";
 
+console.log("---------- 基础配置 ----------");
+console.log(`当前环境：${process.env.NODE_ENV}`);
+
 module.exports = {
   output: {
     path: path.resolve(__dirname, "../dist"),

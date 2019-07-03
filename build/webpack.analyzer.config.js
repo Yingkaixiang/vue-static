@@ -6,7 +6,7 @@ const baseConfig = require("./webpack.base.config");
 
 const BundleAnalyzerPlugin = webpackBundleAnalyzer.BundleAnalyzerPlugin;
 
-console.log("---------- bundle 分析配置 ----------");
+console.log("---------- 打包分析配置 ----------");
 console.log(`当前环境：${process.env.NODE_ENV}`);
 
 module.exports = () => {

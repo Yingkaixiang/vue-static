@@ -1,13 +1,15 @@
 module.exports = {
-  presets: [
+  presets: [["@babel/preset-env", { useBuiltIns: "usage", corejs: 3 }]],
+  plugins: [
+    "@babel/plugin-syntax-dynamic-import",
     [
-      "@babel/preset-env",
+      "@babel/plugin-transform-runtime",
       {
-        useBuiltIns: "usage",
+        corejs: false,
+        helpers: true,
       },
     ],
   ],
-  plugins: ["@babel/plugin-syntax-dynamic-import"],
   env: {
     test: {
       presets: [["@babel/preset-env", { targets: { node: "current" } }]],

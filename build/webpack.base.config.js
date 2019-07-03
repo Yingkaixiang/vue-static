@@ -1,4 +1,11 @@
-const path = require("path");
+/*
+ * @Description: 基础配置
+ * @Author: 应开翔
+ * @Date: 2019-06-16 16:36:34
+ * @LastEditTime: 2019-07-03 20:44:38
+ * @LastEditors: 应开翔
+ */
+
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -14,8 +21,13 @@ console.log("---------- 基础配置 ----------");
 console.log(`当前环境：${process.env.NODE_ENV}`);
 
 module.exports = {
+  // TODO
+  // 1. 多入口使用 [name]/[name].[chunkhas].js
+  // 2. 添加 cache-loader
+  // 3. 添加 eslint-loader
+  context: resolve("../src"),
   output: {
-    path: path.resolve(__dirname, "../dist"),
+    path: resolve("../dist/"),
     publicPath: "/dist/",
     filename: "[name].[chunkhash].js",
   },
@@ -28,12 +40,14 @@ module.exports = {
   },
   module: {
     rules: [
+      // 关闭 require.ensure 因为这不是语言标准
+      // 使用 import() 引入异步组件
+      { parser: { requireEnsure: false } },
       {
         test: /\.vue$/,
         loader: "vue-loader",
         options: {
           compilerOptions: {
-            // 压缩 html
             preserveWhitespace: false,
           },
         },
@@ -115,7 +129,7 @@ module.exports = {
     minimizer: [new OptimizeCSSAssetsPlugin({}), new TerserJSPlugin({})],
   },
   performance: {
-    hints: isProd ? "error" : "warning",
+    hints: isProd ? "error" : false,
   },
   plugins: isProd
     ? [
